@@ -5,7 +5,10 @@ This is a simple job listing web application built using Next.js, Tailwind CSS, 
 Main Features
 
 - List of job postings on the homepage
+
+![Job Listings](images/image.png)
 - Individual job detail pages
+![Job Description](images/img2.png)
 - Responsive layout using Tailwind CSS
 
 Technologies

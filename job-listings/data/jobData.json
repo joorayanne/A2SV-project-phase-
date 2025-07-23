@@ -30,7 +30,7 @@
         "required_skills": ["Social Media Marketing", "English", "Copywriting"]
       },
       "company": "ABC Media",
-      "image": "../public/job1.png",
+      "image": "/job1.png",
       "work_type": "In Person"
     },
     {
@@ -63,7 +63,7 @@
         "required_skills": ["HTML", "CSS", "JavaScript", "PHP"]
       },
       "company": "Tech Innovators",
-      "image": "../public/job2.png",
+      "image": "/job2.png",
       "work_type": "Hybrid"
     },
     {
@@ -102,7 +102,7 @@
         ]
       },
       "company": "Creative Designs Co.",
-      "image": "../public/job3.png",
+      "image": "/job3.png",
       "work_type": "Remote"
     },
     {
@@ -136,7 +136,7 @@
         "required_skills": ["SQL", "Python", "Excel", "Statistical Analysis"]
       },
       "company": "Data Insights Inc.",
-      "image": "../public/job4.png",
+      "image": "/job4.png",
       "work_type": "In Person"
     },
     {
