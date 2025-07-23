@@ -1,14 +1,14 @@
 Job Listing App
 
-This is a simple job listing web application built using Next.js, Tailwind CSS, and TypeScript. It displays a list of job posts and allows users to view more details about each job.
+This is a simple job listing web application built using Next.js, Tailwind CSS, and TypeScript. It fetches and displays a list of job posts  from an API and allows users to view more details about each job .
 
 Main Features
 
 - List of job postings on the homepage
 
-![Job Listings](images/image.png)
+![Job Listings](images/lisitingsUPDATED.png)
 - Individual job detail pages
-![Job Description](images/img2.png)
+![Job Description](images/detailsUPDATED.png)
 - Responsive layout using Tailwind CSS
 
 Technologies

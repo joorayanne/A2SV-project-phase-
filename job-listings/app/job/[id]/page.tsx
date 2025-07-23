@@ -1,57 +1,69 @@
-import jobData from '@/data/jobData.json';
 import JobSidebar from '../../components/JobSidebar';
-import { FaCalendarAlt, FaMapMarkerAlt, FaFireAlt, FaRegClock } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 type Props = {
   params: { id: string };
 };
 
-export default function JobDetail({ params }: Props) {
-  const job = jobData.job_postings[parseInt(params.id)];
-
-  if (!job) {
+export default async function JobDetail({ params }: Props) {
+  const res = await fetch(`https://akil-backend.onrender.com/opportunities/${params.id}`);
+  
+  if (!res.ok) {
     return <p className="p-4 text-red-500">Job not found</p>;
   }
+
+  const {data: job} = await res.json();
 
   return (
     <main className="p-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
       {/* Main Content */}
-      <section className="lg:col-span-2 space-y-8">    
-
+      <section className="lg:col-span-2 space-y-8">
         <section>
           <h2 className="text-xl font-black mb-2">Description</h2>
           <p>{job.description}</p>
         </section>
 
-        <section>
-          <h2 className="text-xl font-black mb-2">Responsibilities</h2>
-          <ul className="list-disc list-inside space-y-1">
-            {job.responsibilities.map((r, i) => (
-              <li key={i}>{r}</li>
-            ))}
-          </ul>
-        </section>
+        {job.responsibilities && (
+          <section>
+            <h2 className="text-xl font-black mb-2">Responsibilities</h2>
+            <ul className="list-disc list-inside space-y-1">
+              {job.responsibilities.split("\n").map((r: string, i: number) => (
+                <li key={i}>{r}</li>
+              ))}
+            </ul>
+          </section>
+        )}
 
-        <section>
-          <h2 className="text-xl font-black mb-2">Ideal Candidate</h2>
-          <ul className="list-disc list-inside space-y-1">
-            {job.ideal_candidate.traits.map((trait, i) => (
-              <li key={i}>{trait}</li>
-            ))}
-          </ul>
-        </section>
+        {job.idealCandidate && (
+          <section>
+            <h2 className="text-xl font-black mb-2">Ideal Candidate</h2>
+            <p>{job.idealCandidate}</p>
+          </section>
+        )}
 
-        <section>
-          <h2 className="text-xl font-black mb-2">When & Where</h2>
-          <div className='flex flex-wrap gap-3'>
-            <FaMapMarkerAlt className="text-blue-500 mt-1" />
-          <p>{job.when_where}</p>
-          </div>
-        </section>
+        {job.whenAndWhere && (
+          <section>
+            <h2 className="text-xl font-black mb-2">When & Where</h2>
+            <div className="flex flex-wrap gap-3">
+              <FaMapMarkerAlt className="text-blue-500 mt-1" />
+              <p>{job.whenAndWhere}</p>
+            </div>
+          </section>
+        )}
       </section>
 
       {/* Sidebar */}
-      <JobSidebar about={job.about} />
+      <JobSidebar
+        about={{
+          posted_on: job.datePosted,
+          deadline: job.deadline,
+          location: job.location,
+          start_date: job.startDate,
+          end_date: job.endDate,
+          categories: job.categories,
+          required_skills: job.requiredSkills,
+        }}
+      />
     </main>
   );
 }
