@@ -1,3 +1,6 @@
+// ❌ Remove this line
+// 'use client';
+
 import JobSidebar from '../../components/JobSidebar';
 import { FaMapMarkerAlt } from "react-icons/fa";
 
@@ -7,12 +10,12 @@ type Props = {
 
 export default async function JobDetail({ params }: Props) {
   const res = await fetch(`https://akil-backend.onrender.com/opportunities/${params.id}`);
-  
+
   if (!res.ok) {
     return <p className="p-4 text-red-500">Job not found</p>;
   }
 
-  const {data: job} = await res.json();
+  const { data: job } = await res.json();
 
   return (
     <main className="p-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -52,7 +55,6 @@ export default async function JobDetail({ params }: Props) {
         )}
       </section>
 
-      {/* Sidebar */}
       <JobSidebar
         about={{
           posted_on: job.datePosted,

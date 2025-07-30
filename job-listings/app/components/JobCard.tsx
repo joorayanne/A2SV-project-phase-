@@ -1,3 +1,4 @@
+'use client';
 import { getCategoryColor } from '@/utils/getCategoryColor';
 import Link from 'next/link';
 
