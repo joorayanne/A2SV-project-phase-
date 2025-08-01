@@ -9,7 +9,8 @@ export default function VerifyEmailPage() {
   const [code, setCode] = useState(['', '', '', '']);
   const [timer, setTimer] = useState(30);
   const [loading, setLoading] = useState(false);
-  const email = typeof window !== 'undefined' ? localStorage.getItem('pendingEmail') : null;
+  const email = typeof window !== 'undefined' ? localStorage.getItem('emailForVerification') : null;
+
 
   useEffect(() => {
     const countdown = setInterval(() => {
