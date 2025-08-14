@@ -1,6 +1,6 @@
 Job Listing App
 
-This is a simple job listing web application built using Next.js, Tailwind CSS, and TypeScript. It fetches and displays a list of job posts  from an API and allows users to view more details about each job .It also has authentication logic,allows authenticated users to bookmark jobs and see all their bookmarked jobs in one place.
+This is a simple job listing web application built using Next.js, Tailwind CSS, and TypeScript. It fetches and displays a list of job posts  from an API and allows users to view more details about each job .It also has authentication logic,allows authenticated users to bookmark jobs and see all their bookmarked jobs in one place and tested with cypress and jest.
 
 Main Features
 
@@ -18,6 +18,8 @@ Main Features
 -bookmarked jobs page
 ![bookmarked jobs](images/bookmarks.png)
 - Responsive layout using Tailwind CSS
+- Testing 
+![testing](images/cypresstest.png)
 
 Technologies
 
